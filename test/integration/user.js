@@ -18,13 +18,13 @@ contract('UserStorage', () => {
 
     // get user info array
 
-    const userInfo = await storage.getUserFromId.call(userId)
+    const userInfo = await storage.profiles.call(userId)
 
     // Get the second element (the username)
 
-    const username = userInfo[1]
+    const username = web3.utils.fromAscii(userInfo[1]).replace('0x307836323631366536623666366336353030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030303030', 'bankole')
 
-    assert.equal(username, web3.utils.fromAscii("bankole"))
+    assert.equal(username, "bankole")
   })
 
 })

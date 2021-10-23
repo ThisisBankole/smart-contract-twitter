@@ -5,7 +5,7 @@ contract UserStorage {
 
     // mapping id to Profile so I can retrieve users profile based on ID
 
-    mapping (uint => Profile) profiles;
+    mapping (uint => Profile) public profiles;
 
     // the structure of the profile 
 
@@ -25,15 +25,6 @@ contract UserStorage {
     profiles[latestUserId] = Profile(latestUserId, _username);
 
     return latestUserId;
-  }
-
-// retrieving users function
-  function getUserFromId (uint _userId) view public returns (uint, bytes32) {
-    return (
-      profiles[_userId].id,
-      profiles[_userId].userName
-
-    );
   }
 
 
