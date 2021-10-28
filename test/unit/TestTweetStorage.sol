@@ -7,17 +7,21 @@ import "truffle/DeployedAddresses.sol";
 import "../../contracts/tweets/TweetStorage.sol";
 
 contract TestTweetStorage {
-    function testCreateNewTweet() public {
-        TweetStorage _storage = TweetStorage(DeployedAddresses.TweetStorage());
+  TweetStorage tweetStorage;
 
-        uint _userId = 1;
-        uint _expectedTweetId = 1;
+  constructor() {
+    tweetStorage = new TweetStorage();
+    tweetStorage.setControllerAddr(address(this));
+  }
 
-        Assert.equal(
-            _storage.createNewTweet(_userId, "Hello World"),
-            _expectedTweetId,
-            "It should create tweet with ID 1"
+  function testCreateNewTweet() public {
+    uint _userId = 1;
+    uint _expectedTweetId = 1;
 
-        );
-    }
+    Assert.equal(
+      tweetStorage.createNewTweet(_userId, "Hello world!"), 
+      _expectedTweetId, 
+      "Should create tweet with ID 1"
+    );
+  }
 }
