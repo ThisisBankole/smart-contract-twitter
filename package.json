@@ -1,0 +1,30 @@
+{
+  "name": "tweether",
+  "version": "1.0.0",
+  "description": "A solidity rookie clone of Twitter.",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "npm run artifacts && next client",
+    "artifacts": "cp -r ./build/contracts/ ./client/web3/artifacts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThisisBankole/twitter-clone-solidity.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThisisBankole/twitter-clone-solidity/issues"
+  },
+  "homepage": "https://github.com/ThisisBankole/twitter-clone-solidity#readme",
+  "dependencies": {
+    "next": "^12.0.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "web3": "^1.6.0"
+  }
+}
